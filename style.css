@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@600&display=swap');
+        
+body {
+    margin: 0;
+    overflow-x: hidden;
+    height: auto;
+    font-family: 'Nunito Sans', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.heart {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    animation: blink 2s infinite;
+}
+
+.heart::before,
+.heart::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    border-radius: 50px 50px 0 0;
+    background: pink;
+}
+
+.heart::before {
+    left: 50px;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+}
+
+.heart::after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+@keyframes blink {
+    0%, 100% {
+        opacity: 0.5;
+        transform: translateY(0) scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1.2);
+    }
+}
+
+.button {
+    padding: 15px 30px;
+    background-color: pink;
+    color: white;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.button:hover {
+    background-color: #ff66b2;
+    transform: scale(1.1);
+}
+
+.button:active {
+    transform: scale(0.95);
+}
+
+.next-section, .image-container {
+    display: none;
+    text-align: center;
+    font-size: 24px;
+    color: pink;
+    margin-top: 20px;
+}
+
+.image-container img {
+    max-width: 60%;
+    height: auto;
+    border-radius: 10px;
+}
+
+
+
+
+
+.heart-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border: 2px solid #ff6b81;
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #ff6b81;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    font-family: Arial, sans-serif;
+    position: relative;
+}
+
+.heart-button:before {
+    content: "💌"; /* Письмо */
+    margin-right: 8px;
+    font-size: 24px;
+}
+
+.heart-button span {
+    font-size: 20px;
+}
+
+.heart-button:hover {
+    background-color: #ff6b81;
+    color: white;
+    box-shadow: 0 0 10px rgba(255, 107, 129, 0.7);
+}
+
+.heart-button:active {
+    transform: scale(0.95);
+}
+
+/* Мерцание */
+@keyframes glow {
+    0% {
+        text-shadow: 0 0 10px #ff6b81, 0 0 20px #ff6b81, 0 0 30px #ff6b81;
+    }
+    50% {
+        text-shadow: 0 0 15px #ff6b81, 0 0 25px #ff6b81, 0 0 35px #ff6b81;
+    }
+    100% {
+        text-shadow: 0 0 10px #ff6b81, 0 0 20px #ff6b81, 0 0 30px #ff6b81;
+    }
+}
+
+.heart-button.glowing {
+    animation: glow 1.5s infinite alternate;
+}
+
+/* Скрытие текста по умолчанию */
+.hidden-text {
+    display: none;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.show-text {
+    display: block;
+    opacity: 1;
+}
